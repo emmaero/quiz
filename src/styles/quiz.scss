@@ -1,0 +1,32 @@
+.question {
+  width: 100%;
+  padding: 1rem;
+  .question-container {
+    width: 95%;
+    margin: auto;
+    .answers {
+      display: grid;
+      margin-top: 2rem;
+      grid-template-columns: auto;
+      gap: 1rem;
+      button {
+        height: 44px;
+        background-color: $color-blue-light;
+        border: none;
+        font-size: $font-p;
+      }
+    }
+  }
+}
+@media (min-width: $media-big) {
+  .question {
+    .question-container {
+      width: 80%;
+      .answers {
+        grid-template-columns: auto auto;
+        button {
+        }
+      }
+    }
+  }
+}
