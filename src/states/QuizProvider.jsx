@@ -12,13 +12,21 @@ const randomQuestions = shuffledQuestions.slice(0, SIZE);
 const initialState = {
   questions: [...randomQuestions],
   quizIndex: 0,
+  showSummary: false,
+  rightAnswersCount: 0,
+  answeredCount: 0,
+  takeTwoAway: true,
+  plusTens: true,
+  timer: 15,
 };
 
 const QuizContext = createContext(initialState);
 export function QuizProvider({ children }) {
-    const [quiz, dispatch] = useReducer(quizReducer, initialState);
+  const [quiz, dispatch] = useReducer(quizReducer, initialState);
   return (
-    <QuizContext.Provider value={{ quiz }}>{children}</QuizContext.Provider>
+    <QuizContext.Provider value={{ quiz, dispatch }}>
+      {children}
+    </QuizContext.Provider>
   );
 }
 export function useQuiz() {
