@@ -38,6 +38,9 @@ p {
         border: none;
         border-radius: 2px;
         font-weight: bold;
+        &:disabled{
+          opacity: 0.5;
+        }
       }
     }
   }

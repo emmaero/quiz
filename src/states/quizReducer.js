@@ -13,8 +13,8 @@ const initialState = {
   showSummary: false,
   rightAnswersCount: 0,
   answeredCount: 0,
-  takeTwoAway: true,
-  plusTens: true,
+  takeTwoAway: false,
+  plusTens: false,
   timer: 15,
 };
 function quizReducer(state, action) {
@@ -30,7 +30,8 @@ function quizReducer(state, action) {
     case "PLUS_TENS":
           return plusTens(state);
       case "DECREASE_TIMER":
-          decreaseTimer(state);
+         return decreaseTimer(state);
+
     default:
       throw new Error("Action not found");
   }
@@ -67,7 +68,7 @@ function decreaseTimer(state) {
   return { ...state, timer: state.timer - 1 };
 }
 function plusTens(state) {
-  return { ...state, timer: state.timer + 10 };
+    return { ...state, plusTens: true, timer: state.timer + 10 };
 }
 function isEnd(state) {
   return state.quizIndex === state.questions.length - 1;
