@@ -28,13 +28,17 @@ function quizReducer(state, action) {
     case "TAKE_TWO_AWAY":
       return takeTwoAway(state);
     case "PLUS_TENS":
-          return plusTens(state);
-      case "DECREASE_TIMER":
-         return decreaseTimer(state);
-
+      return plusTens(state);
+    case "DECREASE_TIMER":
+      return decreaseTimer(state);
+    case "START":
+      return initialState;
     default:
       throw new Error("Action not found");
   }
+}
+function start(state) {
+  return { ...state };
 }
 function nextQuestion(state) {
   const { quizIndex } = state;
@@ -68,7 +72,7 @@ function decreaseTimer(state) {
   return { ...state, timer: state.timer - 1 };
 }
 function plusTens(state) {
-    return { ...state, plusTens: true, timer: state.timer + 10 };
+  return { ...state, plusTens: true, timer: state.timer + 10 };
 }
 function isEnd(state) {
   return state.quizIndex === state.questions.length - 1;
