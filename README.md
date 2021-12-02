@@ -1,70 +1,36 @@
-# Getting Started with Create React App
+# Quiz app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A small quiz game as a single page application.
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+These are the instructions to run the project:
 
-### `npm start`
+Open the terminal and navigate to the folder where this readme file is located.
+Install the project dependencies by typing `npm install` on the terminal.
+Start the project by typing `npm start` on the terminal.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Dependencies
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+React
+node-sass
 
-### `npm test`
+### Requirement gathering
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Google Docs link](https://docs.google.com/document/d/1PeCS2iDuecPYFoGyUCqK7TxHz3LYGhgG36PmOf7I97Y/edit?usp=sharing)
 
-### `npm run build`
+### Project spreadsheet
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Google Spreadsheets link](https://docs.google.com/spreadsheets/d/1WJV7KU8hnPajn60Y6yuKgSyhI7E627Aej0aXNKz7i70/edit?usp=sharing)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Design mockup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+[Figma link](https://www.figma.com/file/NaCuugvuhfVBx7DOh42o4y/Quiz?node-id=9%3A73)
 
-### `npm run eject`
+### Component tree
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[component tree](https://whimsical.com/quiz-component-tree-JeVy1AsksAhnaGENrxLunz)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### User flow
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[user flow](https://whimsical.com/quiz-game-GfSmYrQQ52PCh43FCQC5b1)
