@@ -1,0 +1,53 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: $color-white;
+  overflow-x: hidden;
+  img {
+    width: 100%;
+  }
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+body,
+html {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: $color-white;
+  color: $color-black;
+  font-size: 16px;
+  direction: ltr;
+}
+h1 {
+  font-size: $font-heading-1-mobile;
+}
+p {
+  font-size: 16px;
+}
+@media (min-width: $media-big) {
+  h1 {
+    font-size: $font-heading-1-mobile;
+  }
+  p {
+    font-size: 18px;
+  }
+}
+body::-webkit-scrollbar {
+  width: 4px;
+}
+body::-webkit-scrollbar-track {
+  background-color: $color-blue-light;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #ffff;
+}
