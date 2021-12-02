@@ -15,8 +15,8 @@ const initialState = {
   showSummary: false,
   rightAnswersCount: 0,
   answeredCount: 0,
-  takeTwoAway: true,
-  plusTens: true,
+  takeTwoAway: false,
+  plusTens: false,
   timer: 15,
 };
 

@@ -19,9 +19,12 @@ export default function Quiz() {
       {item.text}
     </button>
   ));
-    // useEffect(() => {
-    //     setTimeout(()=>{dispatch})
-    //  },[]);
+  useEffect(() => {
+    // setTimeout(()=>{dispatch({ type: "DECREASE_TIMER" });}, 1000)
+    let timerId = setInterval(() => {
+        dispatch({ type: "DECREASE_TIMER" });
+    }, 1000);
+  }, []);
   return (
     <div className="question">
       <p>
