@@ -42,7 +42,6 @@ export default function Quiz() {
           <Summary />
         )}
       </div>
-      <button onClick={() => dispatch({ type: "NEXT_QUESTION" })}>Next</button>
     </div>
   );
 }
