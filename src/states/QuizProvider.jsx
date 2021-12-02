@@ -1,25 +1,9 @@
 import { createContext, useContext, useReducer } from "react";
-import { shuffled } from "../scripts/listManager";
-import quizData from "../data/quizData.json";
+import { quizState } from "../scripts/listManager";
 import quizReducer from "./quizReducer";
+import quizData from "../data/quizData.json";
 
-const SIZE = 10;
-
-const quizQuestions = [...quizData];
-
-const shuffledQuestions = shuffled(quizQuestions);
-const randomQuestions = shuffledQuestions.slice(0, SIZE);
-const initialState = {
-  questions: [...randomQuestions],
-  quizIndex: 0,
-  showSummary: false,
-  rightAnswersCount: 0,
-  answeredCount: 0,
-  takeTwoAway: false,
-  plusTens: false,
-  timer: 15,
-};
-
+const initialState = quizState(quizData);
 const QuizContext = createContext(initialState);
 export function QuizProvider({ children }) {
   const [quiz, dispatch] = useReducer(quizReducer, initialState);

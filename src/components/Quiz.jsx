@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+
 import { useQuiz } from "../states/QuizProvider";
+import QuizStatus from "./QuizStatus";
 import Summary from "./Summary";
 
 export default function Quiz() {
   const { quiz, dispatch } = useQuiz();
-  const { questions, quizIndex, showSummary, timer } = quiz;
+  const { questions, quizIndex, showSummary} = quiz;
   const currentQuiz = questions[quizIndex];
   const answerOptions = currentQuiz.options.map((item) => (
     <button
@@ -19,29 +20,20 @@ export default function Quiz() {
       {item.text}
     </button>
   ));
-  useEffect(() => {
-    // setTimeout(()=>{dispatch({ type: "DECREASE_TIMER" });}, 1000)
-    let timerId = setInterval(() => {
-        dispatch({ type: "DECREASE_TIMER" });
-    }, 1000);
-  }, []);
+
   return (
     <div className="question">
-      <p>
-        Question {quizIndex + 1}/{questions.length}
-      </p>
-      <p>Time left: {timer}</p>
-      <div className="question-container">
-        {!showSummary ? (
-          <>
-            {" "}
+      {!showSummary ? (
+        <>
+          <QuizStatus />
+          <div className="question-container">
             <h2>{currentQuiz.text}</h2>
             <div className="answers">{answerOptions}</div>
-          </>
-        ) : (
-          <Summary />
-        )}
-      </div>
+          </div>
+        </>
+      ) : (
+        <Summary />
+      )}
     </div>
   );
 }
