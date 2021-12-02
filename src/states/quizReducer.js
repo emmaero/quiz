@@ -1,28 +1,12 @@
-import { shuffled } from "../scripts/listManager";
+import { quizState, shuffled } from "../scripts/listManager";
 import quizData from "../data/quizData.json";
-
-const SIZE = 10;
-
-const quizQuestions = [...quizData];
-
-const shuffledQuestions = shuffled(quizQuestions);
-const randomQuestions = shuffledQuestions.slice(0, SIZE);
-const initialState = {
-  questions: [...randomQuestions],
-  quizIndex: 0,
-  showSummary: false,
-  rightAnswersCount: 0,
-  answeredCount: 0,
-  takeTwoAway: false,
-  plusTens: false,
-  timer: 15,
-};
+const initialState = quizState(quizData);
 function quizReducer(state, action) {
   switch (action.type) {
     case "NEXT_QUESTION":
       return nextQuestion(state);
     case "RESTART":
-      return initialState;
+      return { ...initialState };
     case "CHOOSE_ANSWER":
       return chooseAnswer(state, action);
     case "TAKE_TWO_AWAY":
@@ -32,13 +16,13 @@ function quizReducer(state, action) {
     case "DECREASE_TIMER":
       return decreaseTimer(state);
     case "START":
-      return initialState;
+      return start(state);
     default:
       throw new Error("Action not found");
   }
 }
 function start(state) {
-  return { ...state };
+  return { ...state, isStarted: true };
 }
 function nextQuestion(state) {
   const { quizIndex } = state;
@@ -65,7 +49,15 @@ function chooseAnswer(state, action) {
   }
 }
 function takeTwoAway(state) {
-  return { ...state, takeTwoAway: false };
+  const currentQuestion = { ...state.questions[state.quizIndex] };
+  const option = currentQuestion.options.find((option) => option.isCorrect);
+  const incorrectOptions = currentQuestion.options.filter(
+    (option) => !option.isCorrect
+  );
+  const shuffledAnswers = shuffled([{ ...option }, { ...incorrectOptions[0] }]);
+
+  state.questions[state.quizIndex].options = shuffledAnswers;
+  return { ...state, takeTwoAway: true };
 }
 function decreaseTimer(state) {
   if (state.timer === 0) return nextQuestion(state);

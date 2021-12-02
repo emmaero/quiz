@@ -1,21 +1,22 @@
+import LifeLine from "./components/LifeLine";
 import Quiz from "./components/Quiz";
+import StartScreen from "./components/StartScreen";
 import { useQuiz } from "./states/QuizProvider";
 import "./styles/style.scss";
 
 function App() {
-  const { quiz, dispatch } = useQuiz();
-  const { takeTwoAway, plusTens } = quiz;
+  const { quiz } = useQuiz();
+  const { isStarted } = quiz;
   return (
     <div className="app">
-      <div className="container">
-        <div className="lifeline-bar">
-          {quiz !== null ? <>
-            <button disabled={takeTwoAway}>50/50</button>
-            <button onClick={() => { dispatch({ type: "PLUS_TENS" }); }} disabled={plusTens}>+10 s</button>
-          </> : <button>Start</button>}
+      {isStarted ? (
+        <div className="container">
+          <LifeLine />
+          <Quiz />
         </div>
-        <Quiz />
-      </div>
+      ) : (
+        <StartScreen />
+      )}
     </div>
   );
 }
