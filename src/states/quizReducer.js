@@ -1,21 +1,30 @@
 import { quizState, shuffled } from "../scripts/listManager";
 import quizData from "../data/quizData.json";
+import {
+  NEXT_QUESTION,
+  RESTART,
+  CHOOSE_ANSWER,
+  TAKE_TWO_AWAY,
+  PLUS_TENS,
+  DECREASE_TIMER,
+  START,
+} from "../data/constants";
 const initialState = quizState(quizData);
 function quizReducer(state, action) {
   switch (action.type) {
-    case "NEXT_QUESTION":
+    case NEXT_QUESTION:
       return nextQuestion(state);
-    case "RESTART":
+    case RESTART:
       return { ...initialState };
-    case "CHOOSE_ANSWER":
+    case CHOOSE_ANSWER:
       return chooseAnswer(state, action);
-    case "TAKE_TWO_AWAY":
+    case TAKE_TWO_AWAY:
       return takeTwoAway(state);
-    case "PLUS_TENS":
+    case PLUS_TENS:
       return plusTens(state);
-    case "DECREASE_TIMER":
+    case DECREASE_TIMER:
       return decreaseTimer(state);
-    case "START":
+    case START:
       return start(state);
     default:
       throw new Error("Action not found");
@@ -60,7 +69,7 @@ function takeTwoAway(state) {
   return { ...state, takeTwoAway: true };
 }
 function decreaseTimer(state) {
-  if (state.timer === 0) return nextQuestion(state);
+  if (state.timer === 1) return nextQuestion(state);
   return { ...state, timer: state.timer - 1 };
 }
 function plusTens(state) {
