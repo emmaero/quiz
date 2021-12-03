@@ -1,5 +1,5 @@
 import { useQuiz } from "../states/QuizProvider";
-
+import { TAKE_TWO_AWAY, PLUS_TENS } from "../data/constants";
 export default function LifeLine() {
   const { quiz, dispatch } = useQuiz();
   const { takeTwoAway, plusTens } = quiz;
@@ -7,7 +7,7 @@ export default function LifeLine() {
     <div className="lifeline-bar">
       <button
         onClick={() => {
-          dispatch({ type: "TAKE_TWO_AWAY" });
+          dispatch({ type: TAKE_TWO_AWAY });
         }}
         disabled={takeTwoAway}
       >
@@ -15,7 +15,7 @@ export default function LifeLine() {
       </button>
       <button
         onClick={() => {
-          dispatch({ type: "PLUS_TENS" });
+          dispatch({ type: PLUS_TENS });
         }}
         disabled={plusTens}
       >

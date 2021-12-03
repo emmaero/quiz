@@ -1,4 +1,5 @@
 import { useQuiz } from "../states/QuizProvider";
+import { START } from "../data/constants";
 
 export default function StartScreen() {
   const { dispatch } = useQuiz();
@@ -6,7 +7,9 @@ export default function StartScreen() {
   return (
     <div className="start-screen">
       <h1>Click on start button to begin begin test</h1>
-      <button onClick={() => dispatch({ type: "START" })}>Start</button>
+      <button data-testid="start" onClick={() => dispatch({ type: START })}>
+        Start
+      </button>
     </div>
   );
 }

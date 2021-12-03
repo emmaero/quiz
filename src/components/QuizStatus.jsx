@@ -1,20 +1,23 @@
 import React, { useEffect } from "react";
 import { useQuiz } from "../states/QuizProvider";
+import { DECREASE_TIMER } from "../data/constants";
 
 export default function QuizStatus() {
   const { quiz, dispatch } = useQuiz();
   const { questions, quizIndex, timer } = quiz;
   useEffect(() => {
-    let timerId = setInterval(() => {
-      dispatch({ type: "DECREASE_TIMER" });
+    setInterval(() => {
+      dispatch({ type: DECREASE_TIMER });
     }, 1000);
   }, []);
   return (
-    <div>
-      <p>
+    <div className="quiz-status">
+      <p className="left">
         Question {quizIndex + 1}/{questions.length}
       </p>
-      <p>Time left: {timer}</p>
+      <p className="right">
+        Time left: <span>{timer}s</span>
+      </p>
     </div>
   );
 }
