@@ -4,6 +4,10 @@
   .question-container {
     width: 95%;
     margin: auto;
+    img {
+      height: 8rem;
+      object-fit: contain;
+    }
     .answers {
       display: grid;
       margin-top: 2rem;

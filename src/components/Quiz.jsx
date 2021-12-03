@@ -26,7 +26,11 @@ export default function Quiz() {
       {!showSummary ? (
         <>
           <QuizStatus />
+
           <div className="question-container">
+            {currentQuiz.imageURL !== "" && (
+              <img src={currentQuiz.imageURL} alt="quiz" />
+            )}
             <h2>{currentQuiz.text}</h2>
             <div className="answers">{answerOptions}</div>
           </div>
