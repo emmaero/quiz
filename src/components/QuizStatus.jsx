@@ -1,14 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useQuiz } from "../states/QuizProvider";
 import { DECREASE_TIMER } from "../data/constants";
 
 export default function QuizStatus() {
+  const [intervalId, setIntervalId] = useState();
   const { quiz, dispatch } = useQuiz();
   const { questions, quizIndex, timer } = quiz;
+
   useEffect(() => {
-    setInterval(() => {
+    clearInterval(intervalId);
+    const id = setInterval(() => {
       dispatch({ type: DECREASE_TIMER });
     }, 1000);
+    setIntervalId(id);
+    // eslint-disable-next-line
   }, []);
   return (
     <div className="quiz-status">
